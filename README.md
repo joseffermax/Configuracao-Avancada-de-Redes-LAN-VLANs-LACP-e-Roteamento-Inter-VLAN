@@ -48,9 +48,28 @@ As portas de acesso e tronco foram configuradas para otimizar o tráfego entre s
 - Endereçamento IPv4 estático nas sub-interfaces de R1 e dinâmico via DHCP para os PCs.
 - Endereçamento IPv6 estático nas sub-interfaces do R1, com demais dispositivos utilizando SLAAC para IPv6.
 
+<h2>🔧 Pré-requisitos e Download do Simulador de Redes 🌐</h2>
+
+Se você ainda não possui um simulador de redes para realizar testes com este cenário, recomendamos que baixe o **Cisco Packet Tracer**.
+
+### Como Baixar o Cisco Packet Tracer
+1. Acesse o site oficial da [Cisco Networking Academy](https://www.netacad.com/).
+2. Crie uma conta gratuita, ou faça login caso já tenha uma.
+3. Procure o **Cisco Packet Tracer** na seção de recursos e faça o download.
+
+> **Nota**: O Packet Tracer é gratuito para uso acadêmico e é uma ótima ferramenta para praticar configurações de redes e protocolos.
+
+### Cenário e Documentação 📄
+O cenário de topologia de rede, junto com um PDF detalhado com instruções de configuração, está disponível para download:
+
+- [Baixar Cenário Packet Tracer (.pkt)](link_do_arquivo_do_cenario)
+- [Baixar PDF de Instruções (.pdf)](link_do_arquivo_pdf)
+
+> ⚠️ **Importante**: Certifique-se de abrir o cenário no simulador de sua escolha para seguir as instruções e testar as configurações do projeto. Isso permitirá uma experiência prática e reforçará o entendimento dos conceitos aplicados.
+
 <h2>⚙️ Tecnologias Utilizadas 🛠️</h2>
 
--  Simulador de Redes (Packet Tracer)
+- Simulador de Redes (Packet Tracer)
 
 <h2>🤝 Contribuição 🤝</h2>
 
