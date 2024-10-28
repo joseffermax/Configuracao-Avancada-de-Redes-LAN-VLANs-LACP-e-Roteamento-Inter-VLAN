@@ -62,8 +62,8 @@ Se você ainda não possui um simulador de redes para realizar testes com este c
 ### Cenário e Documentação 📄
 O cenário de topologia de rede, junto com um PDF detalhado com instruções de configuração, está disponível para download:
 
-- [Baixar Cenário Packet Tracer (.pkt)](https://github.com/joseffermax/Configura-o-Avancada-de-Redes-LAN-VLANs-LACP-e-Roteamento-Inter-VLAN/blob/main/Avalia%C3%A7%C3%A3o%20Tecnologias%20de%20Redes%20Locais.pdf)
-- [Baixar PDF de Instruções (.pdf)](link_do_arquivo_pdf)
+- [Baixar Cenário Packet Tracer (.pkt)](https://github.com/joseffermax/Configura-o-Avancada-de-Redes-LAN-VLANs-LACP-e-Roteamento-Inter-VLAN/blob/main/Avalia%C3%A7%C3%A3o%20Tecnologias%20de%20Redes%20Locais.pkt)
+- [Baixar PDF de Instruções (.pdf)](https://github.com/joseffermax/Configura-o-Avancada-de-Redes-LAN-VLANs-LACP-e-Roteamento-Inter-VLAN/blob/main/Avalia%C3%A7%C3%A3o%20Tecnologias%20de%20Redes%20Locais.pdf)
 
 > ⚠️ **Importante**: Certifique-se de abrir o cenário no simulador de sua escolha para seguir as instruções e testar as configurações do projeto. Isso permitirá uma experiência prática e reforçará o entendimento dos conceitos aplicados.
 
