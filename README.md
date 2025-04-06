@@ -1,90 +1,148 @@
-<h1 align="center">📡 Tecnologias de Redes Locais - Avaliação 🖧</h1>
+<h1 align="center">📡 Tecnologias de Redes Locais - Avaliação Prática 🖧</h1>
 
 <p align="center">
+  <img src="https://img.shields.io/badge/Status-Concluído-brightgreen.svg" alt="Status do Projeto">
   <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licença MIT">
   </a>
 </p>
 
-<p>
-  Este projeto é uma avaliação prática da disciplina de <strong>Tecnologias de Redes Locais</strong> no curso de Tecnologia em Telemática, ministrada pelo professor <strong>Marcelo Portela Sousa</strong>. O objetivo é implementar uma topologia de rede que envolve configurações avançadas de agregação de enlaces, VLANs, endereçamento IPv4 e IPv6, RSTP, DHCP e o roteamento inter-VLAN por meio da técnica Router-on-a-Stick, utilizando um simulador de redes.
+<p align="center">
+  Projeto prático desenvolvido para a disciplina de <strong>Tecnologias de Redes Locais</strong> do curso de <strong>Tecnologia em Telemática</strong>, ministrada pelo professor <strong>Marcelo Portela Sousa</strong>.  
 </p>
 
-<h2>🔍 Requisitos e Funcionalidades 🎛️</h2>
+<p align="center">
+  <strong>🔧 Topologia avançada com agregação de enlaces, VLANs, roteamento inter-VLAN, IPv4, IPv6 e muito mais!</strong>
+</p>
 
-### Agregação de Enlaces e LACP 🔗
-Cinco agregações de enlaces com LACP ativo foram configuradas, cada uma com capacidade de 200 Mbps. Essas conexões são utilizadas para aumentar a largura de banda e fornecer redundância entre os switches.
+---
 
-As portas de agregação foram configuradas conforme o seguinte padrão:
-- **po1**: SW1 (f0/11 e f0/12) <–> SW2 (f0/11 e f0/12)
-- **po3**: SW1 (f0/10 e f0/13) <–> SW3 (f0/10 e f0/13)
-- **po4**: SW1 (f0/8 e f0/14) <–> SW4 (f0/8 e f0/14)
-- **po5**: SW2 (f0/3 e f0/23) <–> SW3 (f0/3 e f0/23)
-- **po6**: SW2 (f0/10 e f0/24) <–> SW4 (f0/10 e f0/24)
+## 🧠 Objetivo do Projeto
 
-### Configuração de VLANs e Sub-redes 🌐
-Seis VLANs foram criadas e associadas a sub-redes, com faixas específicas para suportar diferentes quantidades de hosts:
-- **VLAN 10**: 300 hosts
-- **VLAN 20**: 260 hosts
-- **VLAN 30**: 200 hosts
-- **VLAN 40**: 50 hosts
-- **VLAN 99**: 20 hosts
-- **VLAN 199**: 20 hosts
+Este projeto tem como objetivo implementar e testar uma **topologia de rede LAN corporativa** utilizando recursos avançados de configuração em um ambiente simulado. Foram aplicados conceitos como:
 
-### Modo de Operação das Portas 🔌
-As portas de acesso e tronco foram configuradas para otimizar o tráfego entre switches:
-- **Modo Acesso**: Usado para conectar PCs em VLANs específicas (VLAN 10, VLAN 20, VLAN 30, VLAN 40).
-- **Modo Trunk**: Configurado para permitir a passagem de múltiplas VLANs em links de agregação.
+- LACP (Link Aggregation Control Protocol)
+- VLANs e Sub-redes
+- RSTP
+- DHCP
+- Endereçamento IPv4 e IPv6
+- Router-on-a-Stick
+- Segurança em portas de acesso
 
-### RSTP e Segurança 🔄
-- RSTP foi habilitado para reduzir os tempos de convergência em caso de falhas na topologia.
-- Portfast e BPDU Guard foram ativados nas interfaces conectadas aos PCs e ao roteador para evitar loops.
+O cenário foi implementado no **Cisco Packet Tracer**, simulador de redes amplamente utilizado em ambientes educacionais.
 
-### Router-on-a-Stick e DHCP 📶
-- Router-on-a-Stick configurado no R1, criando sub-interfaces para rotear o tráfego entre VLANs.
-- Pools DHCP foram criados no roteador para atribuir endereços IP automaticamente aos dispositivos nas VLANs.
+---
 
-### Endereçamento IPv4 e IPv6 🧭
-- Endereçamento IPv4 estático nas sub-interfaces de R1 e dinâmico via DHCP para os PCs.
-- Endereçamento IPv6 estático nas sub-interfaces do R1, com demais dispositivos utilizando SLAAC para IPv6.
+## 🚀 Funcionalidades Implementadas
 
-<h2>🔧 Pré-requisitos e Download do Simulador de Redes 🌐</h2>
+### 🔗 Agregação de Enlaces com LACP
 
-Se você ainda não possui um simulador de redes para realizar testes com este cenário, recomendamos que baixe o **Cisco Packet Tracer**.
+Configuração de 5 grupos de agregação (EtherChannel) com LACP ativo, cada um com 200 Mbps de banda, promovendo redundância e desempenho:
 
-### Como Baixar o Cisco Packet Tracer
-1. Acesse o site oficial da [Cisco Networking Academy](https://www.netacad.com/).
-2. Crie uma conta gratuita, ou faça login caso já tenha uma.
-3. Procure o **Cisco Packet Tracer** na seção de recursos e faça o download.
+| EtherChannel | SW1 Portas | SW2/SW3/SW4 Portas |
+|--------------|------------|--------------------|
+| **po1**      | f0/11, f0/12 | SW2: f0/11, f0/12 |
+| **po3**      | f0/10, f0/13 | SW3: f0/10, f0/13 |
+| **po4**      | f0/8, f0/14  | SW4: f0/8, f0/14  |
+| **po5**      | SW2: f0/3, f0/23 | SW3: f0/3, f0/23 |
+| **po6**      | SW2: f0/10, f0/24 | SW4: f0/10, f0/24 |
 
-> **Nota**: O Packet Tracer é gratuito para uso acadêmico e é uma ótima ferramenta para praticar configurações de redes e protocolos.
+---
 
-### Cenário e Documentação 📄
-O cenário de topologia de rede, junto com um PDF detalhado com instruções de configuração, está disponível para download:
+### 🌐 VLANs e Sub-redes
 
-- [Baixar Cenário Packet Tracer (.pkt)](https://github.com/joseffermax/Configura-o-Avancada-de-Redes-LAN-VLANs-LACP-e-Roteamento-Inter-VLAN/blob/main/Avalia%C3%A7%C3%A3o%20Tecnologias%20de%20Redes%20Locais.pkt)
-- [Baixar PDF de Instruções (.pdf)](https://github.com/joseffermax/Configura-o-Avancada-de-Redes-LAN-VLANs-LACP-e-Roteamento-Inter-VLAN/blob/main/Avalia%C3%A7%C3%A3o%20Tecnologias%20de%20Redes%20Locais.pdf)
+Foram configuradas 6 VLANs com diferentes faixas de sub-redes, otimizando o tráfego e segmentando a rede conforme necessidade de hosts:
 
-> ⚠️ **Importante**: Certifique-se de abrir o cenário no simulador de sua escolha para seguir as instruções e testar as configurações do projeto. Isso permitirá uma experiência prática e reforçará o entendimento dos conceitos aplicados.
+| VLAN | Quantidade de Hosts |
+|------|----------------------|
+| VLAN 10 | 300 |
+| VLAN 20 | 260 |
+| VLAN 30 | 200 |
+| VLAN 40 | 50  |
+| VLAN 99 | 20  |
+| VLAN 199 | 20 |
 
-<h2>⚙️ Tecnologias Utilizadas 🛠️</h2>
+---
 
-- Simulador de Redes (Packet Tracer)
+### 🔌 Modos de Operação das Portas
 
-<h2>🤝 Contribuição 🤝</h2>
+- **Access Mode**: Portas conectadas a dispositivos finais (PCs).
+- **Trunk Mode**: Habilitadas para múltiplas VLANs nos links entre switches e roteador.
 
-Contribuições são bem-vindas! Se você tiver sugestões, correções de bugs ou novas funcionalidades, fique à vontade para abrir uma issue ou enviar um pull request.
+---
 
-<h2>📜 Licença 📜</h2>
+### 🔁 RSTP e Segurança de Portas
 
-<p>Este projeto está licenciado sob a MIT License.</p>
+- **RSTP**: Redução de tempo de convergência da rede em falhas.
+- **Portfast** e **BPDU Guard**: Aplicadas às interfaces conectadas aos dispositivos finais para evitar loops.
 
-<h2>📘 Orientação 📘</h2>
+---
 
-<p>Este projeto foi desenvolvido sob a orientação do professor Marcelo Portela Sousa para a disciplina de Tecnologias de Redes Locais.</p>
+### 📶 Router-on-a-Stick + DHCP
 
-<h2>✉️ Contato ✉️</h2>
-Se você tiver alguma dúvida ou quiser saber mais sobre o projeto, sinta-se à vontade para entrar em contato através do meu perfil no GitHub ou mande uma mensagem para o seguinte e-mail: <strong>joseffermax1472@gmail.com</strong>.
+- Configuração de sub-interfaces no roteador R1 para rotear entre VLANs.
+- DHCP configurado em pools separados para cada VLAN, fornecendo endereçamento automático para hosts.
 
-<h2 align="center">🌐 Explore a Topologia de Redes e Aprofunde-se nas Configurações! 🚀</h2>
+---
 
+### 🧭 Endereçamento IP
+
+- **IPv4**: Endereçamento estático nas sub-interfaces do R1 e dinâmico via DHCP para PCs.
+- **IPv6**: Sub-interfaces do R1 configuradas com IPv6 estático; hosts obtêm endereços via SLAAC.
+
+---
+
+## 📂 Arquivos Disponíveis
+
+| Tipo | Arquivo | Descrição |
+|------|---------|-----------|
+| 📦 Cenário Packet Tracer | [Avaliação.pkt](https://github.com/joseffermax/Configura-o-Avancada-de-Redes-LAN-VLANs-LACP-e-Roteamento-Inter-VLAN/blob/main/Avalia%C3%A7%C3%A3o%20Tecnologias%20de%20Redes%20Locais.pkt) | Arquivo de topologia pronto para simulação |
+| 📄 Documentação | [Instruções.pdf](https://github.com/joseffermax/Configura-o-Avancada-de-Redes-LAN-VLANs-LACP-e-Roteamento-Inter-VLAN/blob/main/Avalia%C3%A7%C3%A3o%20Tecnologias%20de%20Redes%20Locais.pdf) | Guia completo com as configurações utilizadas |
+
+---
+
+## 💻 Requisitos
+
+- [Cisco Packet Tracer](https://www.netacad.com/)
+
+> ⚠️ **Nota:** É necessário criar uma conta gratuita na Cisco Networking Academy para baixar e utilizar o simulador.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- Cisco Packet Tracer (Simulador)
+- Protocolo LACP
+- RSTP / Portfast / BPDU Guard
+- VLANs, Subinterfaces, DHCP
+- IPv4 / IPv6
+- Router-on-a-Stick
+
+---
+
+## 🤝 Contribuições
+
+Contribuições são bem-vindas! Caso tenha sugestões, melhorias ou correções, fique à vontade para abrir uma *issue* ou enviar um *pull request*.
+
+---
+
+## 📜 Licença
+
+Distribuído sob a Licença MIT. Veja `LICENSE` para mais informações.
+
+---
+
+## 👨‍🏫 Orientação
+
+Projeto desenvolvido sob orientação do professor **Marcelo Portela Sousa**, na disciplina de **Tecnologias de Redes Locais**.
+
+---
+
+## 📬 Contato
+
+📧 Email: [joseffermax1472@gmail.com](mailto:joseffermax1472@gmail.com)  
+🔗 GitHub: [@joseffermax](https://github.com/joseffermax)
+
+---
+
+<h2 align="center">🌐 Explore a topologia, aplique o conhecimento e domine as redes locais! 🚀</h2>
